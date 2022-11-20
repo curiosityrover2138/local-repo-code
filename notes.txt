@@ -16,3 +16,5 @@ Babel is a tool to transpile the code so that it can run on all web browsers the
 Transpiling and Polyfilling are two tasks needed to make frontend code compatible on all browsers.
 Strict mode is a special mode we can activate in Javascript which makes it easier
 for us to write secure Javascript code. We do it by writing 'use strict'; at the top of the js file.
+
+This is a test change.
