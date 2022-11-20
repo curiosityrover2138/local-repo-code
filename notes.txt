@@ -1,0 +1,18 @@
+Javascript has 2 kinds of variables, objects and primitives. 
+Null and Undefined are different in Javascript.
+let is block scoped and var is function scoped. However we shouldn't use var.
+Always properly declare variables.
+When you try to convert a string that is not convertible to a number to a number using Number 
+command it will give NaN as output.
+typeof works the same as in python
+String used to convert a number to a string
+Javascript has the concept of Truthy and Falsy values. Values that will become true or false 
+when we try to convert them into boolean. JS has only 5 Falsy values so it is best to memorize them
+rather than worrying about Truthy ones.
+5 falsy values are 0, '', null, undefined, NaN. boolean(0)==False, boolean('')==False and so on.
+Javascript has === which is the strict equality operator and the loose 
+equality operator == which performs type conversion
+Babel is a tool to transpile the code so that it can run on all web browsers the same way.
+Transpiling and Polyfilling are two tasks needed to make frontend code compatible on all browsers.
+Strict mode is a special mode we can activate in Javascript which makes it easier
+for us to write secure Javascript code. We do it by writing 'use strict'; at the top of the js file.
