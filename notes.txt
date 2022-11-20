@@ -18,3 +18,4 @@ Strict mode is a special mode we can activate in Javascript which makes it easie
 for us to write secure Javascript code. We do it by writing 'use strict'; at the top of the js file.
 
 This is a test change.
+This is test change 2.
