@@ -17,5 +17,28 @@ Transpiling and Polyfilling are two tasks needed to make frontend code compatibl
 Strict mode is a special mode we can activate in Javascript which makes it easier
 for us to write secure Javascript code. We do it by writing 'use strict'; at the top of the js file.
 
-This is a test change.
-This is test change 2.
+You can use the query selector to select and modify a specific content from Javascript.
+
+DOM is a language independent interface which treats the HTML or XML as a tree structure where each node represents
+a particular part of the code. This can be manipulated by using Javascript functions and basically
+we can make one object of the DOM or a node of the DOM to do a particular thing. This is known as DOM
+manipulation.
+
+document.querySelector('.class_name').textContent= {new_text_content};
+
+This is how you basically can use DOM manipulation to change the text of a particular JS
+
+We can use an addEventListener method to handle on-click events 
+
+First we select the elements that we need and then store the selections in the variables
+so that we can just use the variables for dom manipulation.
+
+querySelector will only select the first it can find in the page
+to select all of them we use querySelectorAll
+
+querySelectorAll will return an array
+
+Whenever an event occurs, Javascript generates an object that contains all the information regarding 
+that event.
+
+
