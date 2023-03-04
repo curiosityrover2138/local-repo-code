@@ -42,3 +42,205 @@ Whenever an event occurs, Javascript generates an object that contains all the i
 that event.
 
 
+Behind the scenes in JS:
+
+Javascript is a garbage collected language which means that the memory is automatically
+cleaned and optimized for performance
+
+Javascript is a JIT compiled and interpreted language
+
+It is a multi paradigm language 
+
+3 main paradigms of a language are procedural programming, Object oriented programming
+and functional programming
+
+
+Javascript is a single threaded event loop managed language which means that all the tasks 
+are put in a single management thread, but whatever tasks come are executed in the event 
+loop and then put in the main thread. Kind of like VCM.
+
+This means that Javascript is a single-threaded non blocking event loop language 
+
+A Javascript engine is just a computer program that runs Javascript.
+
+Both google chrome and nodejs run javascript from the V8 engine 
+
+Any javascript engine always contains a call stack and a heap.
+
+The call stack is where all code is executed using an execution context. It is a structured 
+data structure. 
+
+The heap is an unstructured memory tool where all the objects needed are stored 
+
+Javascript used to be a purely interpreted language, but pure interpreted languages 
+are much more slower than compiled languages 
+Modern javascript engines use a mix between compilation and interpretation. This 
+mix is basically called Just in Time JIT compilation 
+
+Web apis are functionalities provided to the engine but which are not part of the
+javascript language itself 
+
+The event handler functions are also called callback functions 
+
+The event loop takes callback functions from the callback queue and puts them in 
+the call stack so that it can be executed 
+In nodejs implementation of Javascript, we don't have web apis since those are provided 
+by the browser. Instead of that we have multiple C++ bindings and a thread pool
+
+When the code is ready to be executed by Javascript, a global execution context is
+created for the execution of the top level code 
+
+First, only the code that is outside of functions will be executed, then the functions will 
+create another global execution context which will execute that code and so on
+Any code has only one global execution context, but inside that multiple other 
+execution contexts can be created. All the execution contexts make up the call stack
+of the javascript engine.
+
+Each function gets its own execution context as soon as it is called 
+Scope chain basically contains references to variables that are outside of the 
+function and to keep track of the scope chain, it is stored in each execution context. 
+
+Each context also gets a special variable called the this keyword 
+
+Execution contexts belonging to arrow function don't get an arguments keyword or the this 
+keyword 
+
+Javascript has lexical scoping which means that scoping is controlled entirely 
+by the placement of functions and where the variable is inside the block of code 
+scope is the space or environment where the certain function is declared 
+
+In javascript we have global scope, function scope and block scope
+
+Functions are block scoped but only in 'use-strict' mode.
+Block scopes only apply to variables that are declared using let or const.
+When we declare variables using var, that variable will still be accessible outside 
+of the block and block scopes don't apply at all to var variables 
+
+Every scope always has access to all the variables outside of its own scope 
+
+For scoping, the parameters of the functions work just like normal variables 
+Hoisting is the default method of javascript of moving declarations to the top
+
+The code is first scanned for variable declarations before it is executed and hence 
+all the variable declarations are already at the top of the execution context when the 
+execution begins. The variable declarations are scanned during the creation phase 
+of the execution context.
+
+Let and const variables are hoisted but their value is set to NaN and hence it becomes 
+the same as if hoisting is disabled for them
+
+Between the time when let and const are declared and when they are initialized, they are 
+placed in a TDZ or temporal dead zone and hence you cannot use them unless they are  
+initialized.
+
+The only function you can use before writing the function itself is the function 
+declaration. Both the arrow and function expression won't work like that.
+
+window is the global object of javascript in the browser 
+
+The this keyword is not static and it depends on how the function is called. Its value 
+is only assigned when the function is actually called.
+If you use the this keyword in an arrow function, it will simply be the this keyword 
+of the surrounding function, since arrow functions don't have a this keyword.
+
+The kind of this keyword that when assigned to the arrow function picks up the this 
+keyword of the surrounding function is called the lexical this keyword.
+
+When a function is called in as an eventlistener, the this keyword will always point to 
+the dom element that the eventlistener is attached to.
+
+The this keyword does not point to the function itself, nor does it point to the variable 
+environment of the function.
+
+The this keyword in the global object is simply the window object.
+
+In a regular function call, the this keyword will simply be undefined 
+
+When we have a method call, the this keyword inside the object will be just the object 
+which is calling the method 
+
+As a best practice you should never ever use an arrow function as a method 
+
+We can use the arguments keyword in a function to specify as many params as we want.
+Works similar to *args.
+
+We can use Object.assign() to merge 2 objects in JS. This will create an empty new object 
+where all the contents of the object we are assigning will be completely copied. It will 
+essentially be a new memory address in the computer memory
+However, Object.assign() only creates a shallow copy, this means that if another object is 
+inside the object we are using in Object.assign() the inside object won't be duplicated 
+and will point to the original object.
+To create a deep clone you can use the lodash library
+
+var objects = [{ 'a': 1 }, { 'b': 2 }];
+ 
+var deep = _.cloneDeep(objects);
+console.log(deep[0] === objects[0]);
+
+The _.cloneDeep() is a method of the lodash library.
+
+
+A closure is a combination of a function bundled together with references to its surrounding state,
+and a closure is created at the runtime of the function
+The combination of a function and its scope chain is called closure
+
+
+Currying--> Currying is a process in functional programming in which we transform a function
+with multiple arguments into a sequence of nested functions which all take a single argument 
+Currying doesn't call a function, it just transforms it
+
+The this keyword in javascript refers to the object it belongs to it makes functions reusable
+by letting us decide the object value. The value of the this keyword is determined ultimately 
+by how the function is called 
+
+Order of binding for the this keyword:
+
+1. New binding 
+2. Explicit binding 
+3. Implicit binding 
+4. Default binding 
+
+
+In javascript, every function has a prototype that points to that particular function. We can use 
+the prototype object to get all the shareable properties 
+function.prototype.changing_function()
+
+We can also use inheritance with prototypes in a prototypal inheritance
+
+In Javascript, classes are just syntactical sugar on top of all the functionality that 
+is already present in javascript 
+
+Javascript also has iterables and iterators similar to python 
+
+const str = 'Harsh Tandon'
+for(const char in str){
+    console.log(char)
+}
+
+
+const obj = {
+    [Symbol.iterator]:function(){
+        let step=0
+        const iterator={
+            
+            next: function(){
+                step++
+                if (step==1){
+                    return {value:'Hello',done:false}
+                }
+                else if (step==2){
+                    return {value:'World',done:false}
+                }
+                {value: undefined,done: true}
+            }
+        }
+        return iterator 
+    }
+}
+
+We have created our own iterable above 
+
+The generator function always returns a generator object 
+Instead of us having to create an iterator, the generator function will create it for us 
+Because the generator object is an iterator, it can be used in for of loops 
+
